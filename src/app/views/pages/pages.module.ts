@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { RegisterComponent } from './register/register.component';
 import {
   ButtonModule,
   CardModule,
@@ -14,7 +13,7 @@ import {
 import { IconModule } from '@coreui/icons-angular';
 
 @NgModule({
-  declarations: [Page404Component, Page500Component, RegisterComponent],
+  declarations: [Page404Component, Page500Component],
   imports: [
     CommonModule,
     PagesRoutingModule,

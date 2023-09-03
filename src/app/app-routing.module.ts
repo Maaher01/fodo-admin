@@ -15,6 +15,21 @@ const childrenRoutes: Routes = [
       ),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./views/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./views/product/product.module').then((m) => m.ProductModule),
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./views/user/user.module').then((m) => m.UserModule),
+  },
+  {
     path: 'theme',
     loadChildren: () =>
       import('./views/theme/theme.module').then((m) => m.ThemeModule),

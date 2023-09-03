@@ -1,0 +1,99 @@
+<c-row>
+    <c-col xs="12">
+        <c-card>
+            <c-card-body>
+                <form cForm class="row g-3" [formGroup]="adminAddForm" (ngSubmit)="addAdmin()">
+                    <c-col md="6">
+                        <label cLabel for="email">Email</label>
+                        <input type="email" formControlName="email" cFormControl id="email"
+                            placeholder="Enter Email..." />
+                        <div
+                            *ngIf="adminAddForm.controls['email']?.dirty || adminAddForm.controls['email']?.touched && adminAddForm.controls['email'].invalid">
+                            <mat-error *ngIf="adminAddForm.controls['email']?.hasError('email')">Please enter a valid
+                                email</mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
+                        <label cLabel for="username">Username</label>
+                        <input formControlName="username" cFormControl id="username" type="text"
+                            placeholder="Enter username..." />
+                        <div
+                            *ngIf="(adminAddForm.controls['username']?.dirty || adminAddForm.controls['username']?.touched) && adminAddForm.controls['username'].invalid">
+                            <mat-error *ngIf="adminAddForm.controls['username']?.hasError('required')">Username is
+                                required</mat-error>
+                            <mat-error *ngIf="adminAddForm.controls['username']?.hasError('minlength')">Username must
+                                have atleast 3 characters</mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
+                        <label cLabel for="password">Password</label>
+                        <input formControlName="password" cFormControl id="password" type="password"
+                            placeholder="Enter password..." />
+                        <div
+                            *ngIf="adminAddForm.controls['password']?.dirty || adminAddForm.controls['password']?.touched && adminAddForm.controls['password'].invalid">
+                            <mat-error *ngIf="adminAddForm.controls['password']?.hasError('required')">Password is
+                                required</mat-error>
+                            <mat-error
+                                *ngIf="(adminAddForm.controls['password']?.hasError('minlength') || adminAddForm.controls['password']?.hasError('maxlength'))">
+                                Please enter a secure password between 5 to 11 characters
+                            </mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md=" 6">
+                        <label cLabel for="name">Name</label>
+                        <input formControlName="name" cFormControl id="name" type="text" placeholder="Enter name..." />
+                        <div
+                            *ngIf="adminAddForm.controls['name']?.dirty || adminAddForm.controls['name']?.touched && adminAddForm.controls['name'].invalid">
+                            <mat-error *ngIf="adminAddForm.controls['name']?.hasError('required')">Name is
+                                required</mat-error>
+                            <mat-error *ngIf="adminAddForm.controls['name']?.hasError('minlength')">Name must have
+                                atleast 3 characters</mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
+                        <label cLabel for="phoneNo">Mobile Number</label>
+                        <input formControlName="phoneNo" cFormControl id="phoneNo" type="text"
+                            placeholder="Enter Mobile Number..." numbersOnly />
+                        <div
+                            *ngIf="adminAddForm.controls['phoneNo']?.dirty || adminAddForm.controls['phoneNo']?.touched && adminAddForm.controls['phoneNo'].invalid">
+                            <mat-error *ngIf="adminAddForm.controls['phoneNo']?.hasError('required')">Mobile number is
+                                required</mat-error>
+                            <mat-error
+                                *ngIf="(adminAddForm.controls['phoneNo']?.hasError('minlength') || adminAddForm.controls['phoneNo']?.hasError('maxlength'))">Please
+                                enter a valid 11 digit mobile number</mat-error>
+                        </div>
+                    </c-col>
+
+                    <div class="checkboxes">
+                        <c-form-check md="12">
+                            <input cFormCheckInput type="checkbox" id="role" formControlName="role">
+                            <label cFormCheckLabel cLabel for="role">I accept all the terms and
+                                conditions
+                                required to be an admin</label>
+                        </c-form-check>
+
+
+                        <c-form-check md="12">
+                            <input cFormCheckInput type="checkbox" id="hasAccess" formControlName="hasAccess">
+                            <label cFormCheckLabel for="hasAccess">I accept all the terms and
+                                conditions
+                                required to perform all admin actions</label>
+                        </c-form-check>
+                    </div>
+
+                    <div class="res-container" *ngIf="errorMessage">
+                        <p class="res-text">{{errorMessage}}</p>
+                    </div>
+
+                    <c-col xs="12">
+                        <button cButton type="submit" [disabled]="adminAddForm.invalid">Add Admin</button>
+                    </c-col>
+                </form>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>

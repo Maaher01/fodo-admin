@@ -1,0 +1,119 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <c-container>
+        <c-row class="justify-content-center">
+            <c-col lg="7" md="9" xl="6">
+                <c-card class="mx-4">
+                    <c-card-body class="p-4">
+                        <form cForm [formGroup]="adminAddForm" (ngSubmit)="register()">
+                            <h1>Register</h1>
+                            <p class="text-medium-emphasis">Create your account</p>
+
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cilUser"></svg>
+                                </span>
+                                <input autoComplete="name" cFormControl formControlName="username" type="text"
+                                    placeholder="Username" />
+                            </c-input-group>
+                            <div
+                                *ngIf="(adminAddForm.controls['username']?.dirty || adminAddForm.controls['username']?.touched) && adminAddForm.controls['username'].invalid">
+                                <mat-error *ngIf="adminAddForm.controls['username']?.hasError('required')">Username is
+                                    required</mat-error>
+                                <mat-error *ngIf="adminAddForm.controls['username']?.hasError('minlength')">Username
+                                    must
+                                    have atleast 3 characters</mat-error>
+                            </div>
+
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>@</span>
+                                <input autoComplete="email" cFormControl formControlName="email" type="email"
+                                    placeholder="Email" />
+                            </c-input-group>
+                            <div
+                                *ngIf="adminAddForm.controls['email']?.dirty || adminAddForm.controls['email']?.touched && adminAddForm.controls['email'].invalid">
+                                <mat-error *ngIf="adminAddForm.controls['email']?.hasError('email')">Please enter a
+                                    valid
+                                    email</mat-error>
+                            </div>
+
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cilLockLocked"></svg>
+                                </span>
+                                <input autoComplete="new-password" cFormControl formControlName="password"
+                                    type="password" placeholder="Password" type="password" />
+                            </c-input-group>
+                            <div
+                                *ngIf="adminAddForm.controls['password']?.dirty || adminAddForm.controls['password']?.touched && adminAddForm.controls['password'].invalid">
+                                <mat-error *ngIf="adminAddForm.controls['password']?.hasError('required')">Password is
+                                    required</mat-error>
+                                <mat-error
+                                    *ngIf="(adminAddForm.controls['password']?.hasError('minlength') || adminAddForm.controls['password']?.hasError('maxlength'))">
+                                    Please enter a secure password between 5 to 11 characters
+                                </mat-error>
+                            </div>
+
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cilUser"></svg>
+                                </span>
+                                <input autoComplete="name" cFormControl formControlName="name" type="text"
+                                    placeholder="Full Name" />
+                            </c-input-group>
+                            <div
+                                *ngIf="adminAddForm.controls['name']?.dirty || adminAddForm.controls['name']?.touched && adminAddForm.controls['name'].invalid">
+                                <mat-error *ngIf="adminAddForm.controls['name']?.hasError('required')">Name is
+                                    required</mat-error>
+                                <mat-error *ngIf="adminAddForm.controls['name']?.hasError('minlength')">Name must have
+                                    atleast 3 characters</mat-error>
+                            </div>
+
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>
+                                    <svg cIcon></svg>
+                                </span>
+                                <input autoComplete="name" cFormControl formControlName="phoneNo" type="text"
+                                    placeholder="Mobile" numbersOnly />
+                            </c-input-group>
+                            <div
+                                *ngIf="adminAddForm.controls['phoneNo']?.dirty || adminAddForm.controls['phoneNo']?.touched && adminAddForm.controls['phoneNo'].invalid">
+                                <mat-error *ngIf="adminAddForm.controls['phoneNo']?.hasError('required')">Mobile number
+                                    is
+                                    required</mat-error>
+                                <mat-error
+                                    *ngIf="(adminAddForm.controls['phoneNo']?.hasError('minlength') || adminAddForm.controls['phoneNo']?.hasError('maxlength'))">Please
+                                    enter a valid 11 digit mobile number</mat-error>
+                            </div>
+
+                            <div class="checkboxes">
+                                <c-form-check md="12">
+                                    <input cFormCheckInput type="checkbox" id="role" formControlName="role">
+                                    <label cFormCheckLabel cLabel for="role">I accept all the terms and
+                                        conditions
+                                        required to be an admin</label>
+                                </c-form-check>
+
+
+                                <c-form-check md="12">
+                                    <input cFormCheckInput type="checkbox" id="hasAccess" formControlName="hasAccess">
+                                    <label cFormCheckLabel for="hasAccess">I accept all the terms and
+                                        conditions
+                                        required to perform all admin actions</label>
+                                </c-form-check>
+                            </div>
+
+                            <div class="res-container" *ngIf="errorMessage">
+                                <p class="res-text">{{errorMessage}}</p>
+                            </div>
+
+                            <div class="d-grid">
+                                <button cButton color="success" [disabled]="adminAddForm.invalid">Create
+                                    Account</button>
+                            </div>
+                        </form>
+                    </c-card-body>
+                </c-card>
+            </c-col>
+        </c-row>
+    </c-container>
+</div>

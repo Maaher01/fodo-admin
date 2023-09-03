@@ -16,9 +16,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Add a new admin',
+        url: '/admin/adminAdd',
       },
       {
         name: 'View All Admins',
+        url: '/admin/adminList',
       },
     ],
   },
@@ -28,9 +30,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Add a new user',
+        url: '/user/userAdd',
       },
       {
         name: 'View All Users',
+        url: '/user/userList',
       },
     ],
   },
@@ -40,9 +44,11 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Add a product',
+        url: '/product/addProduct',
       },
       {
         name: 'View All Products',
+        url: '/product/productList',
       },
     ],
   },

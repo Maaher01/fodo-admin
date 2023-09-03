@@ -12,9 +12,12 @@ import {
 import { IconModule } from '@coreui/icons-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './register/register.component';
+import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -26,6 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule,
+    MaterialModule,
+    SharedModule,
   ],
 })
 export class AuthModule {}

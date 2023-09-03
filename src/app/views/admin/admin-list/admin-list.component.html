@@ -1,0 +1,26 @@
+<c-row [gutter]="4" class="mb-3" [xl]="4" [lg]="3" [md]="2" [sm]="1">
+    <c-col *ngFor="let admin of admins">
+        <c-card class="h-100">
+            <div class="admin-img">
+                <img cCardImg="top" src="./assets/img/avatars/1.jpg">
+            </div>
+            <c-card-body>
+                <h2 cCardTitle>{{admin.name}}</h2>
+                <p cCardText>
+                    Mobile: {{admin.phoneNo}}
+                </p>
+                <p cCardText *ngIf="admin.email">
+                    Email: {{admin.email}}
+                </p>
+                <mat-card-actions>
+                    <button cButton color="success" class="update">
+                        Update
+                    </button>
+                    <button cButton color="danger" class="delete">
+                        Delete
+                    </button>
+                </mat-card-actions>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>

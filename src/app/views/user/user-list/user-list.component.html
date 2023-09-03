@@ -1,0 +1,32 @@
+<c-row [gutter]="4" class="mb-3" [xl]="4" [lg]="3" [md]="2" [sm]="1">
+    <c-col *ngFor="let user of users">
+        <c-card class="h-100">
+            <div class="user-img">
+                <img cCardImg="top" src="./assets/img/avatars/1.jpg">
+            </div>
+            <c-card-body>
+                <h2 cCardTitle>{{user.fullName}}</h2>
+                <p cCardText>
+                    Email: {{user.email}}
+                </p>
+                <p cCardText>
+                    Address: {{user.address}}
+                </p>
+                <p cCardText>
+                    Mobile: {{user.phoneNo}}
+                </p>
+                <p cCardText>
+                    Gender: {{user.gender}}
+                </p>
+                <mat-card-actions>
+                    <button cButton color="success" class="update">
+                        Update
+                    </button>
+                    <button cButton color="danger" class="delete">
+                        Delete
+                    </button>
+                </mat-card-actions>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>

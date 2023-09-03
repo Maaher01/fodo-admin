@@ -1,0 +1,26 @@
+.user-img {
+  padding: 10px;
+
+  img {
+    height: 185px;
+  }
+}
+
+p {
+  font-size: 15px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-top: 20px;
+
+  .update {
+    color: white;
+  }
+
+  .delete {
+    color: white;
+  }
+}
