@@ -2,7 +2,7 @@
     <c-col *ngFor="let admin of admins">
         <c-card class="h-100">
             <div class="admin-img">
-                <img cCardImg="top" src="./assets/img/avatars/1.jpg">
+                <img cCardImg="top" src="./assets/img/avatars/default.png">
             </div>
             <c-card-body>
                 <h2 cCardTitle>{{admin.name}}</h2>
@@ -16,7 +16,7 @@
                     <button cButton color="success" class="update">
                         Update
                     </button>
-                    <button cButton color="danger" class="delete">
+                    <button cButton color="danger" class="delete" (click)="confirmBox(admin._id)">
                         Delete
                     </button>
                 </mat-card-actions>

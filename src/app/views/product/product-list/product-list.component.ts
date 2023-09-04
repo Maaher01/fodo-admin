@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -31,6 +32,26 @@ export class ProductListComponent implements OnInit {
       error: (err) => {
         this.errorResponse = err.message;
       },
+    });
+  }
+
+  confirmBox(id: any) {
+    Swal.fire({
+      title: 'Are you sure want to delete this product?',
+      text: 'You will not be able to recover it!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire('Deleted!', 'The product has been deleted.', 'success');
+        this.productService.deleteProductById(id).subscribe((result) => {
+          this.getAllProducts();
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your entry is safe :)', 'error');
+      }
     });
   }
 }

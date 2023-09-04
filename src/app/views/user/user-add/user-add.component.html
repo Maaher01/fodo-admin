@@ -76,6 +76,11 @@
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
                         </select>
+                        <div
+                            *ngIf="userAddForm.controls['gender']?.dirty || (userAddForm.controls['gender']?.touched && userAddForm.controls['gender'].invalid)">
+                            <mat-error *ngIf="userAddForm.controls['gender']?.hasError('required')">Gender is
+                                required</mat-error>
+                        </div>
                     </c-col>
 
                     <div class="res-container" *ngIf="errorMessage">

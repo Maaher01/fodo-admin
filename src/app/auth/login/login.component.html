@@ -12,14 +12,18 @@
                                     <span cInputGroupText>
                                         <svg cIcon name="cilUser"></svg>
                                     </span>
-                                    <input formControlName="username" type="text" placeholder="Username" />
+                                    <input formControlName="username" cFormControl type="text" placeholder="Username" />
                                 </c-input-group>
                                 <c-input-group class="mb-4">
                                     <span cInputGroupText>
                                         <svg cIcon name="cilLockLocked"></svg>
                                     </span>
-                                    <input formControlName="password" type="password" placeholder="Password" />
+                                    <input formControlName="password" cFormControl type="password"
+                                        placeholder="Password" />
                                 </c-input-group>
+                                <div class="res-container" *ngIf="errorMessage">
+                                    <p class="res-msg">{{errorMessage}}</p>
+                                </div>
                                 <c-row>
                                     <c-col xs="6">
                                         <button cButton class="px-4" color="primary" type="submit">
@@ -27,7 +31,8 @@
                                         </button>
                                     </c-col>
                                     <c-col class="text-right" xs="6">
-                                        <button cButton class="px-0" color="link">
+                                        <button cButton class="px-0" color="link"
+                                            [routerLink]="['/auth/forgot-password']">
                                             Forgot password?
                                         </button>
                                     </c-col>

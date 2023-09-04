@@ -18,4 +18,8 @@ export class UserService {
     let params = new HttpParams();
     return this.http.get<any>(this.apiUrl + 'get-all-user-list', { params });
   }
+
+  deleteUserById(id: any) {
+    return this.http.delete(this.apiUrl + `delete-user-by-id/${id}`);
+  }
 }

@@ -36,17 +36,17 @@ export class LoginComponent implements OnInit {
             this.responseData = result;
             localStorage.setItem('token', this.responseData.token);
             this.router.navigate(['/', 'dashboard']);
-            this.toastr.success(result.message);
+            // this.toastr.success(result.message);
           }
         },
         (err) => {
-          this.errorMessage = err.err.errors;
-          if (err.err.errors.username) {
-            this.toastr.error(err.error.errors.username);
-          }
-          if (err.err.errors.password) {
-            this.toastr.error(err.error.errors.password);
-          }
+          this.errorMessage = err.error.message;
+          // if (err.err.errors.username) {
+          //   this.toastr.error(err.error.errors.username);
+          // }
+          // if (err.err.errors.password) {
+          //   this.toastr.error(err.error.errors.password);
+          // }
         }
       );
     }
