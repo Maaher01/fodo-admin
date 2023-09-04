@@ -119,7 +119,6 @@ const routes: Routes = [
       scrollPositionRestoration: 'top',
       anchorScrolling: 'enabled',
       initialNavigation: 'enabledBlocking',
-      // relativeLinkResolution: 'legacy'
     }),
   ],
   exports: [RouterModule],
