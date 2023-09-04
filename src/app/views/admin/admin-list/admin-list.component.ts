@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import Swal from 'sweetalert2';
+import { Admin } from 'src/app/models/admin.interface';
 
 @Component({
   selector: 'app-admin-list',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminListComponent implements OnInit {
   adminData: any;
-  admins: any;
+  admins!: Admin[];
   errorResponse: any;
 
   constructor(private adminService: AdminService) {}

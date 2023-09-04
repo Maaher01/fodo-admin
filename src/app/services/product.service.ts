@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Product } from '../models/product.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ export class ProductService {
     return this.http.post<any>(this.apiUrl + 'add-single-product', addPayload);
   }
 
-  getAllProducts() {
+  getAllProducts(): Observable<Product[]> {
     let params = new HttpParams();
     return this.http.post<any>(this.apiUrl + 'get-all-products', { params });
   }

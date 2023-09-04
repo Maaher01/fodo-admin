@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/models/user.interface';
 
 @Component({
   selector: 'app-user-list',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class UserListComponent implements OnInit {
   userData: any;
-  users: any;
+  users!: User[];
   errorResponse: any;
 
   constructor(private userService: UserService) {}

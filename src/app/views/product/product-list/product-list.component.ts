@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import Swal from 'sweetalert2';
+// import { Product } from 'src/app/models/product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ProductListComponent implements OnInit {
   productData: any;
-  products: any;
+  products!: any;
   errorResponse: any;
 
   constructor(private productService: ProductService) {}
