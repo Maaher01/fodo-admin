@@ -1,24 +1,44 @@
-.checkboxes {
-  padding-top: 12px;
+form {
+  margin-top: 1px;
 
-  c-form-check {
-    padding-top: 8px;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 
-    label {
-      margin-bottom: 0;
+  h1 {
+    margin-bottom: 8px;
+
+    @media only screen and (max-width: 768px) {
+      text-align: center;
     }
   }
-}
 
-button {
-  margin-top: 8px;
-}
+  .checkboxes {
+    padding-top: 12px;
 
-.res-container {
-  width: 100%;
+    c-form-check {
+      padding-top: 8px;
 
-  .res-text {
-    color: #f44336;
-    margin-bottom: 0;
+      label {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  button {
+    margin-top: 8px;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .res-container {
+    width: 100%;
+
+    .res-text {
+      color: #f44336;
+      margin-bottom: 0;
+    }
   }
 }

@@ -3,6 +3,7 @@
         <c-card>
             <c-card-body>
                 <form cForm class="row g-3" [formGroup]="adminAddForm" (ngSubmit)="addAdmin()">
+                    <h1>Add Admin</h1>
                     <c-col md="6">
                         <label cLabel for="email">Email</label>
                         <input type="email" formControlName="email" cFormControl id="email"
