@@ -55,7 +55,11 @@ export class ProductEditComponent implements OnInit {
       productName: this.editProductForm.controls['productName'].value!,
       productSlug: this.editProductForm.controls['productSlug'].value!,
       price: this.editProductForm.controls['price'].value!,
+      sku: this.editProductForm.controls['sku'].value!,
+      discountAmount: this.editProductForm.controls['discountAmount'].value!,
+      brand: this.editProductForm.controls['brand'].value!,
     };
+    console.log(payload);
 
     this.productService.editProductById(id, payload).subscribe({
       next: () => {

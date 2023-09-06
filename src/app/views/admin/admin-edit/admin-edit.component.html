@@ -2,6 +2,7 @@
 <button (click)="closeDialog()"><span>&times;</span></button>
 <mat-dialog-content [formGroup]="editAdminForm">
     <mat-form-field>
+        <mat-label cLabel for="name">Full Name</mat-label>
         <input matInput formControlName="name" placeholder="Enter Full Name" />
     </mat-form-field>
     <div
@@ -13,6 +14,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="email">Email</mat-label>
         <input matInput formControlName="email" placeholder="Enter Email" />
     </mat-form-field>
     <div
@@ -22,6 +24,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="username">Username</mat-label>
         <input matInput formControlName="username" placeholder="Enter Username" />
     </mat-form-field>
     <div
@@ -33,6 +36,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="phoneNo">Mobile Number</mat-label>
         <input matInput formControlName="phoneNo" placeholder="Enter Mobile Number" />
     </mat-form-field>
     <div
@@ -44,8 +48,10 @@
             enter a valid 11 digit mobile number</mat-error>
     </div>
 
-    <mat-checkbox formControlName="hasAccess">I accept all the terms and conditions required to perform admin
-        actions</mat-checkbox>
+    <section>
+        <mat-checkbox formControlName="hasAccess">I accept all the terms and conditions required to perform admin
+            actions</mat-checkbox>
+    </section>
 
 </mat-dialog-content>
 <mat-dialog-actions>

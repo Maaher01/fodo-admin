@@ -2,6 +2,7 @@
 <button (click)="closeDialog()"><span>&times;</span></button>
 <mat-dialog-content [formGroup]="editProductForm">
     <mat-form-field>
+        <mat-label cLabel for="productName">Product Name</mat-label>
         <input matInput formControlName="productName" placeholder="Enter Product Name" />
     </mat-form-field>
     <div
@@ -16,6 +17,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="brand">Product Brand</mat-label>
         <input matInput formControlName="brand" placeholder="Enter Product Brand" />
     </mat-form-field>
     <div
@@ -26,6 +28,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="productSlug">Product Slug</mat-label>
         <input matInput formControlName="productSlug" placeholder="Enter Product Slug" />
     </mat-form-field>
     <div
@@ -40,6 +43,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="sku">Product S.K.U</mat-label>
         <input matInput formControlName="sku" numbersOnly placeholder="Enter Product S.K.U" />
     </mat-form-field>
     <div
@@ -51,6 +55,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="price">Product Price</mat-label>
         <input matInput formControlName="price" numbersOnly placeholder="Enter Product Price" />
     </mat-form-field>
     <div
@@ -60,6 +65,7 @@
     </div>
 
     <mat-form-field>
+        <mat-label cLabel for="discountAmount">Discount Amount</mat-label>
         <input matInput formControlName="discountAmount" numbersOnly placeholder="Enter Discount Amount" />
     </mat-form-field>
 
