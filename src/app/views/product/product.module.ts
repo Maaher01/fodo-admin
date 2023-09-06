@@ -9,9 +9,10 @@ import { FormModule } from '@coreui/angular';
 import { ButtonModule } from '@coreui/angular';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
-  declarations: [ProductAddComponent, ProductListComponent],
+  declarations: [ProductAddComponent, ProductListComponent, ProductEditComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,

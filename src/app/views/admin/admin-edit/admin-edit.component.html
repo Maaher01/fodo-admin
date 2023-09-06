@@ -1,0 +1,58 @@
+<p mat-dialog-title>{{ heading }}</p>
+<button (click)="closeDialog()"><span>&times;</span></button>
+<mat-dialog-content [formGroup]="editAdminForm">
+    <mat-form-field>
+        <input matInput formControlName="name" placeholder="Enter Full Name" />
+    </mat-form-field>
+    <div
+        *ngIf="editAdminForm.controls['name']?.dirty || editAdminForm.controls['name']?.touched && editAdminForm.controls['name'].invalid">
+        <mat-error *ngIf="editAdminForm.controls['name']?.hasError('required')">Name is
+            required</mat-error>
+        <mat-error *ngIf="editAdminForm.controls['name']?.hasError('minlength')">Name must have
+            atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Enter Email" />
+    </mat-form-field>
+    <div
+        *ngIf="editAdminForm.controls['email']?.dirty || editAdminForm.controls['email']?.touched && editAdminForm.controls['email'].invalid">
+        <mat-error *ngIf="editAdminForm.controls['email']?.hasError('email')">Please enter a valid
+            email</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="username" placeholder="Enter Username" />
+    </mat-form-field>
+    <div
+        *ngIf="(editAdminForm.controls['username']?.dirty || editAdminForm.controls['username']?.touched) && editAdminForm.controls['username'].invalid">
+        <mat-error *ngIf="editAdminForm.controls['username']?.hasError('required')">Username is
+            required</mat-error>
+        <mat-error *ngIf="editAdminForm.controls['username']?.hasError('minlength')">Username must
+            have atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="phoneNo" placeholder="Enter Mobile Number" />
+    </mat-form-field>
+    <div
+        *ngIf="editAdminForm.controls['phoneNo']?.dirty || editAdminForm.controls['phoneNo']?.touched && editAdminForm.controls['phoneNo'].invalid">
+        <mat-error *ngIf="editAdminForm.controls['phoneNo']?.hasError('required')">Mobile number is
+            required</mat-error>
+        <mat-error
+            *ngIf="(editAdminForm.controls['phoneNo']?.hasError('minlength') || editAdminForm.controls['phoneNo']?.hasError('maxlength'))">Please
+            enter a valid 11 digit mobile number</mat-error>
+    </div>
+
+    <mat-checkbox formControlName="hasAccess">I accept all the terms and conditions required to perform admin
+        actions</mat-checkbox>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button cButton [disabled]="editAdminForm.invalid" (click)="editAdmin(data.admin._id)">
+        Save
+    </button>
+    <button cButton (click)="closeDialog()">
+        Cancel
+    </button>
+</mat-dialog-actions>

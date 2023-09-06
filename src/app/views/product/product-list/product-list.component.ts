@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import Swal from 'sweetalert2';
 // import { Product } from 'src/app/models/product.interface';
+import { ProductEditComponent } from '../product-edit/product-edit.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-list',
@@ -12,8 +14,12 @@ export class ProductListComponent implements OnInit {
   productData: any;
   products!: any;
   errorResponse: any;
+  @Input() product!: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -25,15 +31,18 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  deleteProductById(id: any) {
-    this.productService.deleteProductById(id).subscribe({
-      next: () => {
-        window.location.reload();
-      },
-      error: (err) => {
-        this.errorResponse = err.message;
-      },
-    });
+  openEditDialog(product: any) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      heading: 'Edit Product',
+      product: product,
+    };
+
+    this.dialog.open(ProductEditComponent, dialogConfig);
   }
 
   confirmBox(id: any) {

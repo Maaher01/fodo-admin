@@ -9,9 +9,10 @@ import { FormModule } from '@coreui/angular';
 import { ButtonModule } from '@coreui/angular';
 import { UserListComponent } from './user-list/user-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
-  declarations: [UserAddComponent, UserListComponent],
+  declarations: [UserAddComponent, UserListComponent, UserEditComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

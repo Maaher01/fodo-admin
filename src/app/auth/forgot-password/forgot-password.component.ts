@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
-import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -20,12 +20,12 @@ export class ForgotPasswordComponent {
     ]),
   });
 
-  constructor(private fb: FormBuilder, private adminService: AdminService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   forgotPasswordAdmin() {
     const username = this.adminForgotPasswordForm.controls['username'].value;
     const newPassword = this.adminForgotPasswordForm.controls['password'].value;
-    this.adminService.forgotPassword({ username, newPassword }).subscribe({
+    this.authService.forgotPassword({ username, newPassword }).subscribe({
       next: () => {
         this.adminForgotPasswordForm.reset();
       },

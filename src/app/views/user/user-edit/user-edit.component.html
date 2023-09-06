@@ -1,0 +1,64 @@
+<p mat-dialog-title>{{ heading }}</p>
+<button (click)="closeDialog()"><span>&times;</span></button>
+<mat-dialog-content [formGroup]="editUserForm">
+    <mat-form-field>
+        <input matInput formControlName="fullName" placeholder="Enter Full Name" />
+    </mat-form-field>
+    <div
+        *ngIf="(editUserForm.controls['fullName']?.dirty || editUserForm.controls['fullName']?.touched) && editUserForm.controls['fullName'].invalid">
+        <mat-error *ngIf="editUserForm.controls['fullName']?.hasError('required')">Name is
+            required</mat-error>
+        <mat-error *ngIf="editUserForm.controls['fullName']?.hasError('minlength')">Name must
+            have atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="address" placeholder="Enter Address" />
+    </mat-form-field>
+    <div
+        *ngIf="editUserForm.controls['address']?.dirty || editUserForm.controls['address']?.touched && editUserForm.controls['address'].invalid">
+        <mat-error *ngIf="editUserForm.controls['address']?.hasError('required')">Address is
+            required</mat-error>
+        <mat-error *ngIf="editUserForm.controls['address']?.hasError('minlength')">Address must have
+            atleast 4 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="phoneNo" placeholder="Enter Phone Number" />
+    </mat-form-field>
+    <div
+        *ngIf="editUserForm.controls['phoneNo']?.dirty || editUserForm.controls['phoneNo']?.touched && editUserForm.controls['phoneNo'].invalid">
+        <mat-error *ngIf="editUserForm.controls['phoneNo']?.hasError('required')">Mobile number is
+            required</mat-error>
+        <mat-error
+            *ngIf="(editUserForm.controls['phoneNo']?.hasError('minlength') || editUserForm.controls['phoneNo']?.hasError('maxlength'))">Please
+            enter a valid 11 digit mobile number</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Enter Email" />
+    </mat-form-field>
+    <div
+        *ngIf="editUserForm.controls['email']?.dirty || editUserForm.controls['email']?.touched && editUserForm.controls['email'].invalid">
+        <mat-error *ngIf="editUserForm.controls['email']?.hasError('email')">Please enter a valid
+            email</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="gender" placeholder="Enter Gender" />
+    </mat-form-field>
+    <div
+        *ngIf="editUserForm.controls['gender']?.dirty || (editUserForm.controls['gender']?.touched && editUserForm.controls['gender'].invalid)">
+        <mat-error *ngIf="editUserForm.controls['gender']?.hasError('required')">Gender is
+            required</mat-error>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button cButton [disabled]="editUserForm.invalid" (click)="editUser(data.user._id)">
+        Save
+    </button>
+    <button cButton (click)="closeDialog()">
+        Cancel
+    </button>
+</mat-dialog-actions>

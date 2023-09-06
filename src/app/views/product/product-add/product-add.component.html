@@ -4,10 +4,10 @@
             <c-card-body>
                 <form cForm class="row g-3" [formGroup]="productAddForm" (ngSubmit)="addProduct()">
                     <h1>Add Product</h1>
-                    <c-col md="12">
+                    <c-col md="6">
                         <label cLabel for="productName">Product Name</label>
                         <input formControlName="productName" cFormControl id="productName" type="text"
-                            placeholder="Enter product name..." />
+                            placeholder="Enter Product Name" />
                         <div
                             *ngIf="(productAddForm.controls['productName']?.dirty || productAddForm.controls['productName']?.touched) && productAddForm.controls['productName'].invalid">
                             <mat-error *ngIf="productAddForm.controls['productName']?.hasError('required')">Product name
@@ -20,10 +20,22 @@
                         </div>
                     </c-col>
 
-                    <c-col md="12">
+                    <c-col md="6">
+                        <label cLabel for="brand">Product Brand</label>
+                        <input formControlName="brand" cFormControl id="brand" type="text"
+                            placeholder="Enter Product Brand" />
+                        <div
+                            *ngIf="(productAddForm.controls['brand']?.dirty || productAddForm.controls['brand']?.touched) && productAddForm.controls['brand'].invalid">
+                            <mat-error *ngIf="productAddForm.controls['brand']?.hasError('minlength')">Brand
+                                must
+                                have atleast 3 characters</mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
                         <label cLabel for="productSlug">Product Slug</label>
                         <input formControlName="productSlug" cFormControl id="productSlug" type="text"
-                            placeholder="Enter product slug..." />
+                            placeholder="Enter Product Slug" />
                         <div
                             *ngIf="productAddForm.controls['productSlug']?.dirty || productAddForm.controls['productSlug']?.touched && productAddForm.controls['productSlug'].invalid">
                             <mat-error *ngIf="productAddForm.controls['productSlug']?.hasError('required')">Product slug
@@ -36,15 +48,34 @@
                         </div>
                     </c-col>
 
-                    <c-col md="12">
+                    <c-col md="6">
+                        <label cLabel for="sku">Product S.K.U</label>
+                        <input formControlName="sku" cFormControl id="sku" type="text" placeholder="Enter Product S.K.U"
+                            numbersOnly />
+                        <div
+                            *ngIf="productAddForm.controls['sku']?.dirty || productAddForm.controls['sku']?.touched && productAddForm.controls['sku'].invalid">
+                            <mat-error
+                                *ngIf="(productAddForm.controls['sku']?.hasError('minlength') || productAddForm.controls['sku']?.hasError('maxlength'))">
+                                S.K.U must be a 6 digit number
+                            </mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
                         <label cLabel for="price">Price</label>
                         <input formControlName="price" cFormControl id="price" type="text"
-                            placeholder="Enter Mobile Number..." numbersOnly />
+                            placeholder="Enter Product Price" numbersOnly />
                         <div
                             *ngIf="productAddForm.controls['price']?.dirty || productAddForm.controls['price']?.touched && productAddForm.controls['price'].invalid">
                             <mat-error *ngIf="productAddForm.controls['price']?.hasError('required')">Product price is
                                 required</mat-error>
                         </div>
+                    </c-col>
+
+                    <c-col md="6">
+                        <label cLabel for="discountAmount">Discount Amount</label>
+                        <input formControlName="discountAmount" cFormControl id="discountAmount" type="text"
+                            placeholder="Enter Discount Amount" numbersOnly />
                     </c-col>
 
                     <div class="res-container" *ngIf="errorMessage">

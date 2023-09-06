@@ -21,6 +21,10 @@ export class UserService {
     return this.http.get<any>(this.apiUrl + 'get-all-user-list', { params });
   }
 
+  editUserById(id: any, editPayload: any) {
+    return this.http.put(this.apiUrl + `edit-user-by-id/${id}`, editPayload);
+  }
+
   deleteUserById(id: any) {
     return this.http.delete(this.apiUrl + `delete-user-by-id/${id}`);
   }

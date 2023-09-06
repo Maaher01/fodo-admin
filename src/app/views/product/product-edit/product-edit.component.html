@@ -1,0 +1,74 @@
+<p mat-dialog-title>{{ heading }}</p>
+<button (click)="closeDialog()"><span>&times;</span></button>
+<mat-dialog-content [formGroup]="editProductForm">
+    <mat-form-field>
+        <input matInput formControlName="productName" placeholder="Enter Product Name" />
+    </mat-form-field>
+    <div
+        *ngIf="(editProductForm.controls['productName']?.dirty || editProductForm.controls['productName']?.touched) && editProductForm.controls['productName'].invalid">
+        <mat-error *ngIf="editProductForm.controls['productName']?.hasError('required')">Product name
+            is
+            required</mat-error>
+        <mat-error *ngIf="editProductForm.controls['productName']?.hasError('minlength')">Product
+            name
+            must
+            have atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="brand" placeholder="Enter Product Brand" />
+    </mat-form-field>
+    <div
+        *ngIf="(editProductForm.controls['brand']?.dirty || editProductForm.controls['brand']?.touched) && editProductForm.controls['brand'].invalid">
+        <mat-error *ngIf="editProductForm.controls['brand']?.hasError('minlength')">Brand
+            must
+            have atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="productSlug" placeholder="Enter Product Slug" />
+    </mat-form-field>
+    <div
+        *ngIf="editProductForm.controls['productSlug']?.dirty || editProductForm.controls['productSlug']?.touched && editProductForm.controls['productSlug'].invalid">
+        <mat-error *ngIf="editProductForm.controls['productSlug']?.hasError('required')">Product slug
+            is
+            required</mat-error>
+        <mat-error *ngIf="editProductForm.controls['productSlug']?.hasError('minlength')">Product
+            slug must
+            have
+            atleast 3 characters</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="sku" numbersOnly placeholder="Enter Product S.K.U" />
+    </mat-form-field>
+    <div
+        *ngIf="editProductForm.controls['sku']?.dirty || editProductForm.controls['sku']?.touched && editProductForm.controls['sku'].invalid">
+        <mat-error
+            *ngIf="(editProductForm.controls['sku']?.hasError('minlength') || editProductForm.controls['sku']?.hasError('maxlength'))">
+            S.K.U must be a 6 digit number
+        </mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="price" numbersOnly placeholder="Enter Product Price" />
+    </mat-form-field>
+    <div
+        *ngIf="editProductForm.controls['price']?.dirty || editProductForm.controls['price']?.touched && editProductForm.controls['price'].invalid">
+        <mat-error *ngIf="editProductForm.controls['price']?.hasError('required')">Product price is
+            required</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input matInput formControlName="discountAmount" numbersOnly placeholder="Enter Discount Amount" />
+    </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button cButton [disabled]="editProductForm.invalid" (click)="editProduct(data.product._id)">
+        Save
+    </button>
+    <button cButton (click)="closeDialog()">
+        Cancel
+    </button>
+</mat-dialog-actions>

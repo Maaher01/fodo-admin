@@ -1,19 +1,28 @@
 <c-row [gutter]="4" class="mb-3" [xl]="4" [lg]="3" [md]="2" [sm]="1">
     <c-col *ngFor="let product of products">
         <c-card class="h-100">
-            <div class="product-img">
+            <div class="product-img" *ngIf="product.images">
                 <img cCardImg="top" [src]="product?.images[0]">
             </div>
             <c-card-body>
                 <p cCardTitle class="product-title">{{product.productName | truncate: 50 }}</p>
-                <p cCardText class="product-price">
-                    Price: {{product.price | number }}
-                </p>
                 <p cCardText>
+                    Product Slug: {{product.productSlug}}
+                </p>
+                <p cCardText class="product-price">
+                    Price: ৳{{product.price | number }}
+                </p>
+                <p cCardText *ngIf="product.sku">
+                    S.K.U: {{product.sku }}
+                </p>
+                <p cCardText *ngIf="product.discountAmount">
+                    Discount: ৳{{product.discountAmount}}
+                </p>
+                <p cCardText *ngIf="product.brand">
                     Brand: {{product.brand}}
                 </p>
                 <mat-card-actions>
-                    <button cButton color="success" class="update">
+                    <button cButton color="success" class="update" (click)="openEditDialog(product)">
                         Update
                     </button>
                     <button cButton color="danger" class="delete" (click)="confirmBox(product._id)">

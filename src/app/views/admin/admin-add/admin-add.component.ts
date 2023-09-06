@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AdminService } from '../../../services/admin.service';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +37,7 @@ export class AdminAddComponent {
   constructor(
     private fb: FormBuilder,
     private adminService: AdminService,
-    private toastr: ToastrService,
+    // private toastr: ToastrService,
     private router: Router
   ) {}
 

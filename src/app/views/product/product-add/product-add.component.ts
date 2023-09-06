@@ -22,6 +22,12 @@ export class ProductAddComponent {
       Validators.minLength(3),
     ]),
     price: new FormControl('', Validators.required),
+    sku: new FormControl('', [
+      Validators.minLength(6),
+      Validators.maxLength(6),
+    ]),
+    discountAmount: new FormControl(''),
+    brand: new FormControl('', Validators.minLength(3)),
   });
 
   constructor(

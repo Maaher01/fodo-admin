@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Admin } from '../models/admin.interface';
 
 @Injectable({
@@ -11,7 +10,7 @@ import { Admin } from '../models/admin.interface';
 export class AdminService {
   apiUrl = environment.BASE_URL + 'admin/';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
   addAdmin(addPayload: any) {
     return this.http.post<any>(this.apiUrl + 'registration', addPayload);
@@ -21,15 +20,11 @@ export class AdminService {
     return this.http.get<any>(this.apiUrl + 'get-all-admin-list');
   }
 
-  deleteAdminById(id: any) {
-    return this.http.delete(this.apiUrl + `delete-admin-by-id/${id}`);
+  editAdminById(id: any, editPayload: any) {
+    return this.http.put(this.apiUrl + `edit-admin-by-id/${id}`, editPayload);
   }
 
-  forgotPassword(payload: any) {
-    return this.http.patch(this.apiUrl + 'forgot-password', payload).pipe(
-      tap((res: any) => {
-        this.router.navigateByUrl('/auth/login');
-      })
-    );
+  deleteAdminById(id: any) {
+    return this.http.delete(this.apiUrl + `delete-admin-by-id/${id}`);
   }
 }

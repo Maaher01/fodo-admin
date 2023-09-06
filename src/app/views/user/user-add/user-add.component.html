@@ -5,20 +5,9 @@
                 <form cForm class="row g-3" [formGroup]="userAddForm" (ngSubmit)="addUser()">
                     <h1>Add User</h1>
                     <c-col md="6">
-                        <label cLabel for="email">Email</label>
-                        <input type="email" formControlName="email" cFormControl id="email"
-                            placeholder="Enter Email..." />
-                        <div
-                            *ngIf="userAddForm.controls['email']?.dirty || userAddForm.controls['email']?.touched && userAddForm.controls['email'].invalid">
-                            <mat-error *ngIf="userAddForm.controls['email']?.hasError('email')">Please enter a valid
-                                email</mat-error>
-                        </div>
-                    </c-col>
-
-                    <c-col md="6">
                         <label cLabel for="fullName">Full Name</label>
                         <input formControlName="fullName" cFormControl id="fullName" type="text"
-                            placeholder="Enter your name..." />
+                            placeholder="Enter Full Name" />
                         <div
                             *ngIf="(userAddForm.controls['fullName']?.dirty || userAddForm.controls['fullName']?.touched) && userAddForm.controls['fullName'].invalid">
                             <mat-error *ngIf="userAddForm.controls['fullName']?.hasError('required')">Name is
@@ -29,9 +18,19 @@
                     </c-col>
 
                     <c-col md="6">
+                        <label cLabel for="email">Email</label>
+                        <input type="email" formControlName="email" cFormControl id="email" placeholder="Enter Email" />
+                        <div
+                            *ngIf="userAddForm.controls['email']?.dirty || userAddForm.controls['email']?.touched && userAddForm.controls['email'].invalid">
+                            <mat-error *ngIf="userAddForm.controls['email']?.hasError('email')">Please enter a valid
+                                email</mat-error>
+                        </div>
+                    </c-col>
+
+                    <c-col md="6">
                         <label cLabel for="password">Password</label>
                         <input formControlName="password" cFormControl id="password" type="password"
-                            placeholder="Enter password..." />
+                            placeholder="Enter Password" />
                         <div
                             *ngIf="userAddForm.controls['password']?.dirty || userAddForm.controls['password']?.touched && userAddForm.controls['password'].invalid">
                             <mat-error *ngIf="userAddForm.controls['password']?.hasError('required')">Password is
@@ -43,23 +42,10 @@
                         </div>
                     </c-col>
 
-                    <c-col md=" 6">
-                        <label cLabel for="address">Address</label>
-                        <input formControlName="address" cFormControl id="address" type="text"
-                            placeholder="Enter address..." />
-                        <div
-                            *ngIf="userAddForm.controls['address']?.dirty || userAddForm.controls['address']?.touched && userAddForm.controls['address'].invalid">
-                            <mat-error *ngIf="userAddForm.controls['address']?.hasError('required')">Address is
-                                required</mat-error>
-                            <mat-error *ngIf="userAddForm.controls['address']?.hasError('minlength')">Address must have
-                                atleast 4 characters</mat-error>
-                        </div>
-                    </c-col>
-
                     <c-col md="6">
                         <label cLabel for="phoneNo">Mobile Number</label>
                         <input formControlName="phoneNo" cFormControl id="phoneNo" type="text"
-                            placeholder="Enter Mobile Number..." numbersOnly />
+                            placeholder="Enter Mobile Number" numbersOnly />
                         <div
                             *ngIf="userAddForm.controls['phoneNo']?.dirty || userAddForm.controls['phoneNo']?.touched && userAddForm.controls['phoneNo'].invalid">
                             <mat-error *ngIf="userAddForm.controls['phoneNo']?.hasError('required')">Mobile number is
@@ -72,7 +58,8 @@
 
                     <c-col md="6">
                         <label cLabel for="gender">Gender</label>
-                        <select cSelect formControlName="gender">
+                        <select cSelect formControlName="gender" placeholder="Enter Gender">
+                            <!-- <option selected>Select your gender</option> -->
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
@@ -84,6 +71,18 @@
                         </div>
                     </c-col>
 
+                    <c-col md=" 6">
+                        <label cLabel for="address">Address</label>
+                        <input formControlName="address" cFormControl id="address" type="text"
+                            placeholder="Enter Address" />
+                        <div
+                            *ngIf="userAddForm.controls['address']?.dirty || userAddForm.controls['address']?.touched && userAddForm.controls['address'].invalid">
+                            <mat-error *ngIf="userAddForm.controls['address']?.hasError('required')">Address is
+                                required</mat-error>
+                            <mat-error *ngIf="userAddForm.controls['address']?.hasError('minlength')">Address must have
+                                atleast 4 characters</mat-error>
+                        </div>
+                    </c-col>
                     <div class="res-container" *ngIf="errorMessage">
                         <p class="res-text">{{errorMessage}}</p>
                     </div>

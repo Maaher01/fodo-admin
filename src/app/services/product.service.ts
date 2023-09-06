@@ -21,6 +21,10 @@ export class ProductService {
     return this.http.post<any>(this.apiUrl + 'get-all-products', { params });
   }
 
+  editProductById(id: any, editPayload: any) {
+    return this.http.put(this.apiUrl + `edit-product-by-id/${id}`, editPayload);
+  }
+
   deleteProductById(id: any) {
     return this.http.delete(this.apiUrl + `delete-product-by-id/${id}`);
   }

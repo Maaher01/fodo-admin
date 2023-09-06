@@ -7,13 +7,19 @@
             <c-card-body>
                 <h2 cCardTitle>{{admin.name}}</h2>
                 <p cCardText>
-                    Mobile: {{admin.phoneNo}}
-                </p>
-                <p cCardText *ngIf="admin.email">
                     Email: {{admin.email}}
                 </p>
+                <p cCardText>
+                    Username: {{admin.username}}
+                </p>
+                <p cCardText>
+                    Mobile: {{admin.phoneNo}}
+                </p>
+                <p cCardText>
+                    Has Access: {{admin.hasAccess}}
+                </p>
                 <mat-card-actions>
-                    <button cButton color="success" class="update">
+                    <button cButton color="success" class="update" (click)="openEditDialog(admin)">
                         Update
                     </button>
                     <button cButton color="danger" class="delete" (click)="confirmBox(admin._id)">

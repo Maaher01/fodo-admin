@@ -10,16 +10,16 @@
                     Email: {{user.email}}
                 </p>
                 <p cCardText>
-                    Address: {{user.address}}
-                </p>
-                <p cCardText>
                     Mobile: {{user.phoneNo}}
                 </p>
                 <p cCardText>
                     Gender: {{user.gender}}
                 </p>
+                <p cCardText>
+                    Address: {{user.address}}
+                </p>
                 <mat-card-actions>
-                    <button cButton color="success" class="update">
+                    <button cButton color="success" class="update" (click)="openEditDialog(user)">
                         Update
                     </button>
                     <button cButton color="danger" class="delete" (click)="confirmBox(user._id)">

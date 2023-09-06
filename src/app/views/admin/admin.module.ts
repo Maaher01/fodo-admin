@@ -10,9 +10,10 @@ import { FormModule } from '@coreui/angular';
 import { ButtonModule } from '@coreui/angular';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
 
 @NgModule({
-  declarations: [AdminAddComponent, AdminListComponent],
+  declarations: [AdminAddComponent, AdminListComponent, AdminEditComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
