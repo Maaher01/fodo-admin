@@ -8,3 +8,17 @@ table td img {
   height: 50px;
 }
 
+
+table td .action-box mat-icon {
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+table td .action-box .edit:hover {
+  color: goldenrod;
+}
+
+table td .action-box .delete:hover {
+  color: red;
+}
+

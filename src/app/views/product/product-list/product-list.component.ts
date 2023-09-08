@@ -14,7 +14,8 @@ export class ProductListComponent implements OnInit {
   productData: any;
   products!: any;
   dataSource: any;
-  displayedColumns: any = ['_id', 'productName', 'images',  'quantity', 'price', 'discountAmount', 'brand'];
+  displayedColumns: any = ['productName', 'images',  'quantity', 'price', 'discountAmount', 'brand', '_id'];
+  // displayedColumns: any = ['_id', 'productName', 'images',  'quantity', 'price', 'discountAmount', 'brand', 'productSlug'];
   errorResponse: any;
   @Input() product!: any;
 

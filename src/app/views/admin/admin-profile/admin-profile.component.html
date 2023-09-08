@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="sidebar-area">
+        <div class="profile-area">
+            <div class="profile-img">
+                <img src="assets/img/avatars/default.png">
+            </div>
+            <div class="img-title">
+                <p>{{admin.name}}</p>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li routerLinkActive="activeList">
+                    <mat-icon>perm_identity</mat-icon>
+                    <span>Basic Information</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="content-area">
+            <div class="content">
+                <div class="header">
+                    <h1>Personal Information</h1>
+                    <button mat-button (click)="openEditDialog(admin)">
+                        <span>Edit</span>
+                    </button>
+                </div>
+                <div class="data-area">
+                    <table class="data-table">
+                        <tbody>
+                            <tr>
+                                <td class="label">Full Name</td>
+                                <td class="value">{{admin.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Phone No.</td>
+                                <td class="value">{{admin.phoneNo}}</td>
+                            </tr>
+                            <tr>
+                                <td class="label" *ngIf="admin.email">Email</td>
+                                <td class="value">{{admin.email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Username</td>
+                                <td class="value">{{admin.username}}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Role</td>
+                                <td class="value">{{admin.role}}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Has Access</td>
+                                <td class="value">{{admin.hasAccess}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

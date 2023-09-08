@@ -11,9 +11,10 @@ import { ButtonModule } from '@coreui/angular';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 @NgModule({
-  declarations: [AdminAddComponent, AdminListComponent, AdminEditComponent],
+  declarations: [AdminAddComponent, AdminListComponent, AdminEditComponent, AdminProfileComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
