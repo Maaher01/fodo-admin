@@ -1,35 +1,69 @@
-<c-row [gutter]="4" class="mb-3" [xl]="4" [lg]="3" [md]="2" [sm]="1">
-    <c-col *ngFor="let product of products">
-        <c-card class="h-100">
-            <div class="product-img" *ngIf="product.images">
-                <img cCardImg="top" [src]="product?.images[0]">
-            </div>
-            <c-card-body>
-                <p cCardTitle class="product-title">{{product.productName | truncate: 50 }}</p>
-                <p cCardText>
-                    Product Slug: {{product.productSlug}}
-                </p>
-                <p cCardText class="product-price">
-                    Price: ৳{{product.price | number }}
-                </p>
-                <p cCardText *ngIf="product.sku">
-                    S.K.U: {{product.sku }}
-                </p>
-                <p cCardText *ngIf="product.discountAmount">
-                    Discount: ৳{{product.discountAmount}}
-                </p>
-                <p cCardText *ngIf="product.brand">
-                    Brand: {{product.brand}}
-                </p>
-                <mat-card-actions>
-                    <button cButton color="success" class="update" (click)="openEditDialog(product)">
-                        Update
-                    </button>
-                    <button cButton color="danger" class="delete" (click)="confirmBox(product._id)">
-                        Delete
-                    </button>
-                </mat-card-actions>
-            </c-card-body>
-        </c-card>
-    </c-col>
-</c-row>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+    <!-- Product Name Column -->
+    <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+
+    <!-- Product Image Column -->
+    <ng-container matColumnDef="images">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element">
+            <img src="{{element.images}}" alt="">
+        </td>
+    </ng-container>
+
+
+    <!-- Product Quantity Column -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+
+
+    <!-- Product Price Column -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+
+    <!-- Product discount Column -->
+    <ng-container matColumnDef="discountAmount">
+        <th mat-header-cell *matHeaderCellDef> Discount </th>
+        <td mat-cell *matCellDef="let element"> {{element.discountAmount}} </td>
+    </ng-container>
+
+
+    <!-- Product brand Column -->
+    <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef> Brand </th>
+        <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+    </ng-container>
+
+    
+    <!-- Product Update and Delete Column -->
+    <ng-container matColumnDef="_id">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <button cButton color="success" class="update" (click)="openEditDialog(element)">
+                Update
+            </button>
+            <button cButton color="danger" class="delete" (click)="confirmBox(element._id)">
+                Delete
+            </button>
+        </td>
+    </ng-container>
+
+    
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

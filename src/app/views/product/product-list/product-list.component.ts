@@ -13,6 +13,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 export class ProductListComponent implements OnInit {
   productData: any;
   products!: any;
+  dataSource: any;
+  displayedColumns: any = ['_id', 'productName', 'images',  'quantity', 'price', 'discountAmount', 'brand'];
   errorResponse: any;
   @Input() product!: any;
 
@@ -28,6 +30,10 @@ export class ProductListComponent implements OnInit {
   getAllProducts() {
     this.productService.getAllProducts().subscribe((results) => {
       (this.productData = results), (this.products = this.productData.data);
+      // console.table(this.products);
+      this.dataSource = this.products;
+
+      
     });
   }
 

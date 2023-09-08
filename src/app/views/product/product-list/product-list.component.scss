@@ -1,29 +1,10 @@
-.product-img {
-  padding: 10px;
-
-  img {
-    height: 185px;
-  }
+table {
+  width: 100%;
+  margin: 20px 0;
 }
 
-.product-title {
-  color: #39404a;
-  font-size: 16px;
-  margin-bottom: 20px;
-  line-height: 18px;
+table td img {
+  width: 50px;
+  height: 50px;
 }
 
-mat-card-actions {
-  display: flex;
-  justify-content: flex-start;
-  gap: 5px;
-  margin-top: 20px;
-
-  .update {
-    color: white;
-  }
-
-  .delete {
-    color: white;
-  }
-}
