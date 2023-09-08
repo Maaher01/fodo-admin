@@ -34,6 +34,8 @@ export class UserListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
+    dialogConfig.width = "500px";
+
     dialogConfig.data = {
       heading: 'Edit User',
       user: user,

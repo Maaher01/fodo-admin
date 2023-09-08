@@ -44,6 +44,8 @@ export class ProductListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
+    dialogConfig.width = "500px";
+
     dialogConfig.data = {
       heading: 'Edit Product',
       product: product,

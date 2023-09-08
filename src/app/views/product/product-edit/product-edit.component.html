@@ -1,5 +1,7 @@
-<p mat-dialog-title>{{ heading }}</p>
-<button (click)="closeDialog()"><span>&times;</span></button>
+<div class="heading-close-box">
+    <p mat-dialog-title>{{ heading }}</p>
+    <button (click)="closeDialog()"><span>&times;</span></button>
+</div>
 <mat-dialog-content [formGroup]="editProductForm">
     <mat-form-field>
         <mat-label cLabel for="productName">Product Name</mat-label>

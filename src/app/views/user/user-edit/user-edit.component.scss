@@ -1,0 +1,26 @@
+.heading-close-box {
+    padding: 0 10px;
+    // border: 1px solid red;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        width: 30px;
+        height: 30px;
+        // border: 1px solid blue;
+    }
+
+
+}
+
+
+
+mat-form-field {
+    margin: 0 3px;
+}
+
+mat-dialog-actions button {
+    margin: 0 3px;
+}
