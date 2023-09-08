@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 const materials = [
   MatFormFieldModule,
@@ -14,6 +15,7 @@ const materials = [
   MatDialogModule,
   MatInputModule,
   MatCheckboxModule,
+  MatIconModule,
 ];
 
 @NgModule({

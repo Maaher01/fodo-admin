@@ -27,4 +27,8 @@ export class AdminService {
   deleteAdminById(id: any) {
     return this.http.delete(this.apiUrl + `delete-admin-by-id/${id}`);
   }
+
+  getAdminInfo() {
+    return this.http.get(this.apiUrl + `get-logged-in-admin-info`);
+  }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,13 @@ const routes: Routes = [
         component: AdminListComponent,
         data: {
           title: 'Admin List',
+        },
+      },
+      {
+        path: 'adminProfile',
+        component: AdminProfileComponent,
+        data: {
+          title: 'Admin Profile',
         },
       },
     ],

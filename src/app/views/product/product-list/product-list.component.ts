@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import Swal from 'sweetalert2';
-// import { Product } from 'src/app/models/product.interface';
+import { Product } from 'src/app/models/product.interface';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
@@ -12,7 +12,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 })
 export class ProductListComponent implements OnInit {
   productData: any;
-  products!: any;
+  products!: Product[];
   errorResponse: any;
   @Input() product!: any;
 

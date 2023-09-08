@@ -2,7 +2,7 @@
     <c-col *ngFor="let product of products">
         <c-card class="h-100">
             <div class="product-img" *ngIf="product.images">
-                <img cCardImg="top" [src]="product?.images[0]">
+                <img cCardImg="top" [src]="product.images[0]">
             </div>
             <c-card-body>
                 <p cCardTitle class="product-title">{{product.productName | truncate: 50 }}</p>
@@ -10,7 +10,7 @@
                     Product Slug: {{product.productSlug}}
                 </p>
                 <p cCardText class="product-price">
-                    Price: ৳{{product.price | number }}
+                    Price: ৳{{product.price }}
                 </p>
                 <p cCardText *ngIf="product.sku">
                     S.K.U: {{product.sku }}
