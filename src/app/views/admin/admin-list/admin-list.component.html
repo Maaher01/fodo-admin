@@ -1,9 +1,6 @@
 <c-row [gutter]="4" class="mb-3" [xl]="4" [lg]="3" [md]="2" [sm]="1">
     <c-col *ngFor="let admin of admins">
         <c-card class="h-100">
-            <div class="admin-img">
-                <img cCardImg="top" src="./assets/img/avatars/default.png">
-            </div>
             <c-card-body>
                 <h2 cCardTitle>{{admin.name}}</h2>
                 <p cCardText>
@@ -14,6 +11,9 @@
                 </p>
                 <p cCardText>
                     Mobile: {{admin.phoneNo}}
+                </p>
+                <p cCardText>
+                    Role: {{admin.role}}
                 </p>
                 <p cCardText>
                     Has Access: {{admin.hasAccess}}
